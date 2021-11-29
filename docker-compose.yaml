@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+
+  api:
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: ./docker/api/Dockerfile
+    container_name: django-rest-polls-api
+    entrypoint: /usr/src/app/docker/api/wsgi-entrypoint.sh
+    volumes:
+      - ./docker/:/usr/src/app/docker/
+      - ./django_rest_polls/:/usr/src/app/api/
+    ports:
+      - 8000:8000
