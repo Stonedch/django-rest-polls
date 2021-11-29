@@ -6,13 +6,13 @@ from .poll import Poll
 class Question(models.Model):
     class Type:
         TEXT = 'text'
-        SINGLE_CHOISE = 'singlechoise'
-        MULTIPLE_CHOISE = 'multiplechoise'
+        SINGLE_CHOICE = 'singlechoice'
+        MULTIPLE_CHOICE = 'multiplechoice'
 
         CHOICES = (
             (TEXT, 'Text answer'),
-            (SINGLE_CHOISE, 'Single choise answer'),
-            (MULTIPLE_CHOISE, 'Multiple choise answer'),
+            (SINGLE_CHOICE, 'Single choice answer'),
+            (MULTIPLE_CHOICE, 'Multiple choice answer'),
         )
 
     poll = models.ForeignKey(Poll, on_delete=models.CASCADE, related_name="questions")
